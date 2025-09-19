@@ -1,0 +1,33 @@
+{
+  "DisplayName": "MakeQueue",
+  "Tooltip": null,
+  "HelpLink": null,
+  "Color": null,
+  "OriginalIconFileName": null,
+  "Arguments": [
+    {
+      "Name": "in_str_PathCsvFilesFolder",
+      "DisplayName": "in_str_PathCsvFilesFolder",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "H:\\Benutzerprofilsicherung_eiia\\20240412_INFUD7155\\Documents\\URL_Pruefung - Wiederanlage",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    },
+    {
+      "Name": "in_str_PathBearbCsvFilesFolder",
+      "DisplayName": "in_str_PathBearbCsvFilesFolder",
+      "Category": null,
+      "Tooltip": null,
+      "Placeholder": "H:\\Benutzerprofilsicherung_eiia\\20240412_INFUD7155\\Documents\\URL_Pruefung - Wiederanlage\\Bearbeitet",
+      "Widget": null,
+      "IsRequired": false,
+      "IsPrincipal": true,
+      "ArgumentType": 0,
+      "DataSourceItems": null
+    }
+  ]
+}
