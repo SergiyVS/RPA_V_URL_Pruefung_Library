@@ -1,5 +1,5 @@
 {
-  "DisplayName": "MakeQueue",
+  "DisplayName": "ReadCSV_MakeQueue",
   "Tooltip": null,
   "HelpLink": null,
   "Color": null,
@@ -18,11 +18,11 @@
       "DataSourceItems": null
     },
     {
-      "Name": "in_str_PathBearbCsvFilesFolder",
-      "DisplayName": "in_str_PathBearbCsvFilesFolder",
+      "Name": "in_str_MaskForSearch",
+      "DisplayName": "in_str_MaskForSearch",
       "Category": null,
       "Tooltip": null,
-      "Placeholder": "H:\\Benutzerprofilsicherung_eiia\\20240412_INFUD7155\\Documents\\URL_Pruefung - Wiederanlage\\Bearbeitet",
+      "Placeholder": "*.csv",
       "Widget": null,
       "IsRequired": false,
       "IsPrincipal": true,
@@ -30,11 +30,11 @@
       "DataSourceItems": null
     },
     {
-      "Name": "in_str_MaskForSearch",
-      "DisplayName": "in_str_MaskForSearch",
+      "Name": "in_str_PathBearbCsvFilesFolder",
+      "DisplayName": "in_str_PathBearbCsvFilesFolder",
       "Category": null,
       "Tooltip": null,
-      "Placeholder": "*.csv",
+      "Placeholder": "H:\\Benutzerprofilsicherung_eiia\\20240412_INFUD7155\\Documents\\URL_Pruefung - Wiederanlage\\Bearbeitet",
       "Widget": null,
       "IsRequired": false,
       "IsPrincipal": true,

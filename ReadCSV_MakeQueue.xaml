@@ -1,4 +1,21 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="986,1136" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" this:Main.in_str_PathCsvFilesFolder="H:\Benutzerprofilsicherung_eiia\20240412_INFUD7155\Documents\URL_Pruefung - Wiederanlage" this:Main.in_str_PathBearbCsvFilesFolder="H:\Benutzerprofilsicherung_eiia\20240412_INFUD7155\Documents\URL_Pruefung - Wiederanlage\Bearbeitet" this:Main.in_OrchestratorFolderPath="VSG/IOM/URL_Pruef_WiederAnlage" this:Main.in_QueueName="URL_Pruef_WiederAnlage_URLs_aus_CSV" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_str_PathCsvFilesFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_MaskForSearch" Type="InArgument(x:String)" />
+    <x:Property Name="in_str_PathBearbCsvFilesFolder" Type="InArgument(x:String)" />
+    <x:Property Name="in_OrchestratorFolderPath" Type="InArgument(x:String)" />
+    <x:Property Name="in_QueueName" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Main.in_str_MaskForSearch>
+    <InArgument x:TypeArguments="x:String">
+      <Literal x:TypeArguments="x:String">*.csv</Literal>
+    </InArgument>
+  </this:Main.in_str_MaskForSearch>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>986,1136</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -81,22 +98,17 @@
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap:VirtualizedContainerService.HintSize="1029,1057" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap:VirtualizedContainerService.HintSize="1029,1580" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Sequence DisplayName="ReadCSV_MakeQueue - Sequence" sap:VirtualizedContainerService.HintSize="536,1034" sap2010:WorkflowViewState.IdRef="Sequence_4">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="536,173" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Info" Message="[&quot;### START ReadCSV ###&quot;]" />
+    <Sequence DisplayName="ReadCSV_MakeQueue - Sequence" sap:VirtualizedContainerService.HintSize="536,1220" sap2010:WorkflowViewState.IdRef="Sequence_4">
       <Sequence.Variables>
         <Variable x:TypeArguments="s:String[]" Name="arr_FilesInDir" />
         <Variable x:TypeArguments="x:Boolean" Default="False" Name="bln_IsFilesInDir" />
-        <Variable x:TypeArguments="x:String" Default="H:\Benutzerprofilsicherung_eiia\20240412_INFUD7155\Documents\URL_Pruefung - Wiederanlage" Name="str_PathCsvFilesFolder" />
-        <Variable x:TypeArguments="x:String" Name="str_MaskForSearch">
-          <Variable.Default>
-            <Literal x:TypeArguments="x:String">*.csv</Literal>
-          </Variable.Default>
-        </Variable>
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -116,10 +128,10 @@
           <OutArgument x:TypeArguments="s:String[]">[arr_FilesInDir]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(str_PathCsvFilesFolder, str_MaskForSearch)]</InArgument>
+          <InArgument x:TypeArguments="s:String[]">[Directory.GetFiles(in_str_PathCsvFilesFolder, in_str_MaskForSearch)]</InArgument>
         </Assign.Value>
       </Assign>
-      <If Condition="[arr_FilesInDir.Length = 0]" sap:VirtualizedContainerService.HintSize="502,723" sap2010:WorkflowViewState.IdRef="If_1">
+      <If Condition="[arr_FilesInDir.Length = 0]" sap:VirtualizedContainerService.HintSize="502,900" sap2010:WorkflowViewState.IdRef="If_1">
         <If.Then>
           <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,224" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
@@ -131,7 +143,7 @@
           </Sequence>
         </If.Then>
         <If.Else>
-          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,338" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="468,515" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -145,10 +157,20 @@
                 <InArgument x:TypeArguments="x:Boolean">True</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,164" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Gibt es &lt;&lt;&lt;&quot; + arr_FilesInDir.Length.ToString + &quot;&gt;&gt;&gt; Dateien für Verarbeitung&quot;]" />
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,173" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;Gibt es &lt;&lt;&lt;&quot; + arr_FilesInDir.Length.ToString + &quot;&gt;&gt;&gt; Dateien für Verarbeitung&quot;]" />
+            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="MakeQueue - Invoke Workflow File (MakeQueue.xaml)" sap:VirtualizedContainerService.HintSize="434,168" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="MakeQueue.xaml">
+              <ui:InvokeWorkflowFile.Arguments>
+                <InArgument x:TypeArguments="x:String" x:Key="in_str_PathCsvFilesFolder">[in_str_PathCsvFilesFolder]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_str_PathBearbCsvFilesFolder">[in_str_PathBearbCsvFilesFolder]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_str_MaskForSearch">[in_str_MaskForSearch]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_OrchestratorFolderPath">[in_OrchestratorFolderPath]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="in_QueueName">[in_QueueName]</InArgument>
+              </ui:InvokeWorkflowFile.Arguments>
+            </ui:InvokeWorkflowFile>
           </Sequence>
         </If.Else>
       </If>
     </Sequence>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="536,164" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;### END ReadCSV ###&quot;]" />
   </Sequence>
 </Activity>
